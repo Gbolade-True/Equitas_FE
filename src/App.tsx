@@ -1,9 +1,9 @@
+import React from "react";
 import {useState, useEffect} from "react";
 import Launches from "./components/Launches";
-import {Button, Container} from "@mui/material";
-import './App.css';
+import { Box, Container, Pagination } from "@mui/material";
 import { IResponse } from "interfaces/response";
-import React from "react";
+import './App.css';
 
 function App() {
 
@@ -122,29 +122,35 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const nextPage = () => {
+    const setPage = (page: number) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setCurrentPage(currentPage + 1)
-        fetchData(currentPage + 1)
-    }
-    const prevPage = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setCurrentPage(currentPage - 1)
-        fetchData(currentPage - 1)
+        setCurrentPage(page)
+        fetchData(page)
     }
 
     return (
         <div>
             <Container sx={{ marginBottom: '20px' }}>
                 <h2>Welcome!</h2>
-                <p>Total Launches: <b>{data?.totalDocs}</b></p>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                    <p>Total Launches: <b>{data?.totalDocs}</b></p>
+                    <Pagination 
+                        count={data?.totalPages || 10} 
+                        color="secondary"
+                        onChange={(e, pageNumber) => setPage(pageNumber)}
+                        shape="rounded"
+                    />
+                </Box>
                 {data?.docs ? (
                     <div>
                         <Launches launches={data?.docs} loading={loading} />
-                        <p>Page {data["page"]} / {data["totalPages"]} </p>
-                        <Button variant="outlined" onClick={prevPage} disabled={currentPage === 1}>Prev Page</Button>
-                        <Button variant="outlined" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
-                           Page</Button>
+                        <Pagination 
+                            count={data?.totalPages || 10} 
+                            color="secondary"
+                            onChange={(e, pageNumber) => setPage(pageNumber)}
+                            shape="rounded"
+                            sx={{ marginTop: '20px' }}
+                        />
                    </div>
                 ) : (
                     <div>Loading...</div>
