@@ -14,8 +14,8 @@ interface LaunchProps {
 const Launch = ({ launch, loading }: LaunchProps) => {
 
     const launchObject = {
-        'ID': launch?.id,
-        'Flight Number': launch?.flight_number,
+        'ID': launch.id,
+        'Flight Number': launch.flight_number,
         'Launch Date': moment(launch.date_utc).format('MMMM Do YYYY, h:mm:ss a')
     }
 
@@ -47,18 +47,18 @@ const Launch = ({ launch, loading }: LaunchProps) => {
             <p>Hover over items to see quick info</p>
             <StledTooltip 
                 PopperProps={genericPopperProps}
-                title={generateTooltipContent(launch?.capsules)} placement='bottom'>
-                <b>Capsules ({launch?.capsules.length})</b>
+                title={generateTooltipContent(launch.capsules)} placement='bottom'>
+                <b>Capsules ({launch.capsules.length})</b>
             </StledTooltip>
             <StledTooltip 
                 PopperProps={genericPopperProps}
-                title={generateTooltipContent(launch?.crew)} placement='bottom'>
-                <b>Crew ({launch?.crew.length})</b>
+                title={generateTooltipContent(launch.crew)} placement='bottom'>
+                <b>Crew ({launch.crew.length})</b>
             </StledTooltip>
             <StledTooltip 
                 PopperProps={genericPopperProps}
-                title={generateTooltipContent(launch?.payloads)} placement='bottom'>
-                <b>Payloads ({launch?.payloads.length})</b>
+                title={generateTooltipContent(launch.payloads)} placement='bottom'>
+                <b>Payloads ({launch.payloads.length})</b>
             </StledTooltip>
         </Box>
     )
@@ -67,8 +67,8 @@ const Launch = ({ launch, loading }: LaunchProps) => {
         <LaunchCard
             cardHeader={launch.name}
             cardObject={launchObject}
-            headerImage={launch?.links?.patch?.small}
-            cardImage={launch?.links?.patch?.large}
+            headerImage={launch.links?.patch?.small}
+            cardImage={launch.links?.patch?.large}
             isLoading={loading}
             ExpandInfo={ExpandInfo}
         />

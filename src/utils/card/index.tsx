@@ -1,12 +1,10 @@
-import React from 'react';
-import { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Card, CardActions, CardContent, CardHeader, Collapse } from "@mui/material";
 import N_A from 'extras/images/N_A.jpg';
 import { CustomImage } from 'utils/image';
 import { ExpandMore } from './styled';
 import './card.scss';
-
 interface ICardProps {
   cardImage: string;
   cardHeader: ReactNode;

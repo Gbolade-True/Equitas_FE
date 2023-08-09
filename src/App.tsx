@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import Launches from "./components/Launches";
 import { Box, Container, Pagination } from "@mui/material";
 import { IResponse } from "interfaces/response";
-import './App.css';
+import './App.scss';
 
 function App() {
 
@@ -135,7 +135,7 @@ function App() {
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                     <p>Total Launches: <b>{data?.totalDocs}</b></p>
                     <Pagination 
-                        count={data?.totalPages || 10} 
+                        count={data?.totalPages} 
                         color="primary"
                         onChange={(e, pageNumber) => setPage(pageNumber)}
                         shape="rounded"
@@ -145,7 +145,7 @@ function App() {
                     <div>
                         <Launches launches={data?.docs} loading={loading} />
                         <Pagination 
-                            count={data?.totalPages || 10} 
+                            count={data?.totalPages} 
                             color="primary"
                             onChange={(e, pageNumber) => setPage(pageNumber)}
                             shape="rounded"

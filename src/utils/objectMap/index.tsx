@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { isImageUrl, isNull, splitCamelString } from 'utils/helpers';
 import { Card } from '@mui/material';
 import { CustomImage } from 'utils/image';
@@ -9,7 +9,7 @@ interface ObjectSectionProps {
 	title?: string;
 }
 
-export const ObjectMapSection: FC<ObjectSectionProps> = ({ mapObj, title = '' }) => {
+export const ObjectMapSection = ({ mapObj, title = '' }: ObjectSectionProps) => {
 	return (
 		<Card>
 			<div
@@ -26,21 +26,21 @@ export const ObjectMapSection: FC<ObjectSectionProps> = ({ mapObj, title = '' })
 			</div>
 			<div className='flex-wrapper-main' style={{ marginBottom: '20px', width: '100%' }}>
 				{mapObj && Object.keys(mapObj).map((item, index) => {
-						return (
-							!isNull(mapObj[item]) && item !== 'id' &&
-							<div className='content-card' key={index} style={{ paddingRight: '10px' }}>
-								<p className='card-label'>{splitCamelString(item)}</p>
-								<p className='card-text'>
-                                    {
-                                        isImageUrl(mapObj[item])
-                                        ? <CustomImage src={mapObj[item]} width='40px' height='40px' style={{ borderRadius: '20px' }}  />
-                                        :
-                                        mapObj[item]
-                                    }
-                                </p>
-							</div>
-						);
-					})}
+					return (
+						!isNull(mapObj[item]) && item !== 'id' &&
+						<div className='content-card' key={index} style={{ paddingRight: '10px' }}>
+							<p className='card-label'>{splitCamelString(item)}</p>
+							<p className='card-text'>
+								{
+									isImageUrl(mapObj[item])
+									? <CustomImage src={mapObj[item]} width='40px' height='40px' style={{ borderRadius: '20px' }}  />
+									:
+									mapObj[item]
+								}
+							</p>
+						</div>
+					);
+				})}
 			</div>
 		</Card>
 	);
