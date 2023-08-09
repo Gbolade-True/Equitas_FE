@@ -1,0 +1,23 @@
+@import './styles/mixins.scss';
+@import './styles/variables.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $base-color;
+  background-color: #fff;
+
+  font-size: 14px;
+  @media (min-width: $md-breakpoint) {
+    font-size: 16px;
+  }
+};
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

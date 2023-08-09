@@ -1,0 +1,33 @@
+.flex-wrapper-inner-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.flex-wrapper-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .content-card{
+        margin-bottom: 20px;
+
+        .card-label{
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            margin-left: 10px;
+            margin-bottom: 7px;
+            text-decoration: underline;
+        }
+
+        .card-text{
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            margin-left: 10px;
+            text-transform: capitalize;
+            padding-bottom: 10px;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+@import '../../styles/variables.scss';
+
+.card-container {
+    width: 345px;
+    position: relative;
+
+    @media screen and (max-width:$sm-breakpoint){
+        width: 320px;
+    }
+
+    & .MuiCardHeader-root {
+        position: relative;
+    }
+    & .MuiCardHeader-action {
+        margin: auto;
+
+        svg{
+            margin-left: 8px;
+        }
+    }
+
+    .card-header {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    
+        .card-label, i{
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    }
+
+    .image {
+        cursor: pointer;
+
+        &.expanded {
+            height: 300px;
+        }
+    }
+
+    .card-body {
+        margin-top: 10px;
+        display: grid;
+        position: relative;
+        height: 200px;
+
+        .logo {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: -30px;
+            right: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img{
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        .card-info {
+            margin: 10px 10px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+
+            .card-label{
+                margin: 0;
+                opacity: .7;
+                text-transform: capitalize;
+            }
+    
+            .card-text{
+                margin: 0;
+                text-transform: capitalize;
+                font-weight: 600;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    &.isLoading {
+        .card-info,
+        .image {
+          border-radius: 5px;
+          background-size: 200% 100% !important;
+          animation: 1.5s shine linear infinite;
+          opacity: 1;
+        }
+
+        img, p{
+            visibility: hidden;
+        }
+    }
+}
+
+
+@keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+}
