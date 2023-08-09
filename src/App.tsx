@@ -139,6 +139,7 @@ function App() {
                         color="primary"
                         onChange={(e, pageNumber) => setPage(pageNumber)}
                         shape="rounded"
+                        page={currentPage}
                     />
                 </Box>
                 {data?.docs ? (
@@ -149,6 +150,7 @@ function App() {
                             color="primary"
                             onChange={(e, pageNumber) => setPage(pageNumber)}
                             shape="rounded"
+                            page={currentPage}
                             sx={{ marginTop: '20px' }}
                         />
                    </div>
