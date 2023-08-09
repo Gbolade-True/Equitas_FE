@@ -4,7 +4,7 @@ I did the following
 - completed FE test
 - added typescript and scss for better quality code
 - created interfaces for API Response and Launch
-- created custom cpmonents
+- created custom components
 - added Montserrat font
 - added custom images
 

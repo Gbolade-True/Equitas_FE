@@ -136,7 +136,7 @@ function App() {
                     <p>Total Launches: <b>{data?.totalDocs}</b></p>
                     <Pagination 
                         count={data?.totalPages || 10} 
-                        color="secondary"
+                        color="primary"
                         onChange={(e, pageNumber) => setPage(pageNumber)}
                         shape="rounded"
                     />
@@ -146,7 +146,7 @@ function App() {
                         <Launches launches={data?.docs} loading={loading} />
                         <Pagination 
                             count={data?.totalPages || 10} 
-                            color="secondary"
+                            color="primary"
                             onChange={(e, pageNumber) => setPage(pageNumber)}
                             shape="rounded"
                             sx={{ marginTop: '20px' }}
@@ -155,9 +155,7 @@ function App() {
                 ) : (
                     <div>Loading...</div>
                 )}
-
             </Container>
-
         </div>
     );
 }
